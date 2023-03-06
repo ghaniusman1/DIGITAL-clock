@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Digital Clock</title>
+</head>
+
+<body>
+ 
+        <h1>12:23:00</h1>
+  
+
+
+
+    <script>
+        var days=['Monday','Tuesday','Wednsday','thursday','Friday','Saturday','Sunday']
+        
+       var u=setInterval(()=> {
+            var date = new Date()
+            console.log(date)
+            var Hour=date.getHours()
+            var minuts=date.getMinutes()
+            var second=date.getSeconds()
+            var ampm= Hour>=12 ? "PM":"AM";
+            var day=date.getDay()
+            var year=date.getFullYear()
+            if(Hour>12)
+
+{
+    Hour=Hour-12
+}   
+
+
+Hour=(Hour<10) ? '0' + Hour:Hour
+minuts=(minuts<10) ? '0' + minuts:minuts
+second=(second<10) ? '0' + second:second
+     var h1=document.querySelector('h1');
+            h1.innerHTML=`<h1>${Hour}:${minuts}:${second}:${ampm}:${days[day-1]}:${year}</h1>`
+            }, 1000)
+            function clear(){
+                clearInterval(u)
+            }
+    </script> 
+
+</body>
+
+</html>
